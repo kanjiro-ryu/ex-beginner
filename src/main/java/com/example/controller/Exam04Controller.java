@@ -38,7 +38,7 @@ public class Exam04Controller {
 			return index();
 		}
 		
-		session.setAttribute("user", userForm);
+		session.setAttribute("userForm", userForm);
 		
 		return "exam04-result";
 	}

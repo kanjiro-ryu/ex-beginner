@@ -7,7 +7,7 @@
 <body>
 
 数字を入れてください。　<br>
-<form>
+<form th:action = "@{/ex02/calc}" method = "post" >
 <input type ="text" name ="firstNum"> +
 <input type ="text" name ="secondNum"> = <br>
 <button>足し算をする</button>

@@ -14,10 +14,16 @@ public class Exam02Controller {
 		}
 	
 	
-	@RequestMapping("/input-form")
-	public String form(String name, Model model) {
+	@RequestMapping("/calc")
+	public String form(String firstNum, String secondNum, Model model) {
+		int  firstNumInt = Integer.parseInt(firstNum);
+		int  secondNumInt = Integer.parseInt(secondNum);
 		
-		model.addAttribute("name", name);
+		int calcAnswer = firstNumInt + secondNumInt;
+		
+		model.addAttribute("firstNum", firstNumInt );
+		model.addAttribute("secondNum", firstNumInt );
+		model.addAttribute("calcAnswer", calcAnswer );
 		
 		return "exam01-result";
 	}

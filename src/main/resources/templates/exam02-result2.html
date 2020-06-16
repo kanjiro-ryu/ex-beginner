@@ -5,13 +5,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <h1>足し算結果画面</h1> <br>
 
 <span th:text = "${session.firstNum}"></span> +
 <span th:text = "${session.secondNum}"></span> =
-<span th:text = "${session.calcAnswer}"></span> <br>
-
-<a th:href = "@{/ex02/toPage}">次へ</a>
+<span th:text = "${session.calcAnswer}"></span> 
 
 </body>
 </html>

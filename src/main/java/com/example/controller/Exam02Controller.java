@@ -1,13 +1,19 @@
 package com.example.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/ex02")
 public class Exam02Controller {
 
+	@Autowired
+	private HttpSession session;
+	
 	@RequestMapping("")
 	public String Index() {
 		return "exam02";
@@ -15,17 +21,22 @@ public class Exam02Controller {
 	
 	
 	@RequestMapping("/calc")
-	public String form(String firstNum, String secondNum, Model model) {
-		int  firstNumInt = Integer.parseInt(firstNum);
-		int  secondNumInt = Integer.parseInt(secondNum);
+	public String form(Integer firstNum, Integer secondNum ) {
 		
-		int calcAnswer = firstNumInt + secondNumInt;
+		int calcAnswer = firstNum + secondNum;
 		
-		model.addAttribute("firstNum", firstNumInt );
-		model.addAttribute("secondNum", firstNumInt );
-		model.addAttribute("calcAnswer", calcAnswer );
 		
-		return "exam01-result";
+		session.setAttribute("firstNum", firstNum );
+		session.setAttribute("secondNum", secondNum );
+		session.setAttribute("calcAnswer", calcAnswer );
+		
+		return "exam02-result";
+	}
+	
+	
+	@RequestMapping("/toPage")
+	public String toPage() {
+		return "exam02-result2";
 	}
 	
 }

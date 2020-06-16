@@ -1,8 +1,11 @@
 package com.example.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Member;
@@ -22,11 +25,11 @@ public class Exam05Controller {
 	}
 	
 	@RequestMapping("/execute")
-	public String execute() {
+	public String execute(String name, Model model) {
+			
 		
-	
-		repository.findBy();
 		
+		model.addAttribute("keyAnswer", repository.findBy(name) );
 		
 		return "exam05-result";
 	}

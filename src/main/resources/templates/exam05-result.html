@@ -6,12 +6,12 @@
 </head>
 <body>
 
-	<form th:action="@{/ex05/execute}" method="post">
-		名前：<input type="text" name="name"> <br>
-		<button>検索</button>
-	</form>
+	<h4>検索結果</h4>
 
-
-
+	<div th:each="key:${keyAnswer}">
+		
+			<span th:text="${key.name}"></span> <br>
+		
+	</div>
 </body>
 </html>

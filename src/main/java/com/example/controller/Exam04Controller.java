@@ -31,14 +31,14 @@ public class Exam04Controller {
 	}
 	
 	@RequestMapping("/input-form")
-	public String InputForm(@Validated User user , BindingResult result, Model model ) {
+	public String InputForm(@Validated UserForm userForm , BindingResult result, Model model ) {
 		
 		
 		if (result.hasErrors()) {
 			return index();
 		}
 		
-		session.setAttribute("user", user);
+		session.setAttribute("user", userForm);
 		
 		return "exam04-result";
 	}

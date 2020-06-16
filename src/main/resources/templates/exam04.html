@@ -3,21 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel = "stylesheet" th:href = "@{/exam04.css}">
+
 </head>
 <body>
 
 <h3>ユーザ登録</h3> <br>
 
-<form th:action = "${/ex04/input-form}" method = "post" th:object = "${userForm}">
-<div th:if = "${#fields.hasErrors('name')}" th:errors = "*{name}">エラー！</div>
+<form th:action = "@{/ex04/input-form}" method = "post" th:object = "${userForm}">
+<div th:if = "${#fields.hasErrors('name')}" th:errors = "*{name}" class = "message" >エラー！</div>
 名前：<input type = "text" name ="name" th:field = "*{name}"> <br>
-<div th:if = "${#fields.hasErrors('age')}" th:errors = "*{age}">エラー！</div>
-年齢：<input type = "text" name ="age" th:field = ""> <br>
+<div th:if = "${#fields.hasErrors('age')}" th:errors = "*{age}" class = "message">エラー！</div>
+年齢：<input type = "text" name ="age" th:field = "*{age}"> <br>
 コメント：<br>
-<div th:if = "${#fields.hasErrors('comment')}" th:errors = "*{comment}">エラー！</div>
+<div th:if = "${#fields.hasErrors('comment')}" th:errors = "*{comment}" class = "message">エラー！</div>
 <textarea rows="5" cols="50" name = "comment" th:field = "*{comment}" ></textarea> <br>
 <button>登録</button>
-
 </form>
 
 
